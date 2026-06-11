@@ -305,7 +305,7 @@ nav {
   font-size: 2.1rem;
   color: white;
 }
-#progress-bar {
+#progressBar {
   appearance: none;
   width: 600px;
   height: 3px;
