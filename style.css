@@ -346,3 +346,10 @@ input[type="range"]::-webkit-slider-thumb {
   color: white;
   margin-left: 1rem;
 }
+
+.active{
+  color: rgb(25, 155, 25);
+}
+.active:hover{
+  color: rgb(25, 155, 25);
+}
