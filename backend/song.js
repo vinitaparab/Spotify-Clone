@@ -1,0 +1,173 @@
+const songs = [
+  {
+    songName: "Assa Kooda",
+    songDes: "Sai Abhyankkar,Sai Smriti",
+    songImage: "Images/img1.jpg",
+    songPath: "Audio/1.mp3",
+  },
+  {
+    songName: "Paper Rings",
+    songDes: "Taylor Swift",
+    songImage: "Images/img2.jpg",
+    songPath: "Audio/2.mp3",
+  },
+  {
+    songName: "I Guess",
+    songDes: "KR$NA",
+    songImage: "Images/img3.jpg",
+    songPath: "Audio/3.mp3",
+  },
+  {
+    songName: "Safar",
+    songDes: "Juss, MixSingh",
+    songImage: "Images/img4.jpg",
+    songPath: "Audio/4.mp3",
+  },
+  {
+    songName: "Bairan",
+    songDes: "Banjaare",
+    songImage: "Images/img5.jpg",
+    songPath: "Audio/5.mp3",
+  },
+  {
+    songName: "Sheesha-Akhya Mai Aakh Gali Jo Bairan",
+    songDes: "Mitta Ror, Swara Verma",
+    songImage: "Images/img6.jpg",
+    songPath: "Audio/6.mp3",
+  },
+
+  {
+    songName: "Tere Liye",
+    songDes: "Atif Aslam,Shreya Ghoshal,Sachin Gupta,Sameer Anjan",
+    songImage: "Images/img7.jpg",
+    songPath: "Audio/7.mp3",
+  },
+  {
+    songName: 'Dhurandhar-Title Track(From "Dhurandhar")',
+    songDes: "Shashwat Sachdev,Hanumankind,Jasmine Sandlas",
+    songImage: "Images/img8.jpg",
+    songPath: "Audio/8.mp3",
+  },
+  {
+    songName: "Boyfriend",
+    songDes: "karan Ajula,lkky",
+    songImage: "Images/img9.jpg",
+    songPath: "Audio/9.mp3",
+  },
+  {
+    songName: "Khat",
+    songDes: "Navjot Ahuja",
+    songImage: "Images/img10.jpg",
+    songPath: "Audio/10.mp3",
+  },
+  {
+    songName: "AZUL",
+    songDes: "Guru Randhawa,Gurjit Gill,Lavish Dhiman",
+    songImage: "Images/img11.jpg",
+    songPath: "Audio/11.mp3",
+  },
+  {
+    songName: "Sirra",
+    songDes: "Guru Randhawa,Kiran Bajwa,Rony Ajnali",
+    songImage: "Images/img12.jpg",
+    songPath: "Audio/12.mp3",
+  },
+  {
+    songName: "São Paulo(feat.Aniita)",
+    songDes: "The Weekend,Anitta",
+    songImage: "Images/img13.jpg",
+    songPath: "Audio/13.mp3",
+  },
+  {
+    songName: "Sahiba",
+    songDes: "AaAditya Rikhari",
+    songImage: "Images/img14.jpg",
+    songPath: "Audio/14.mp3",
+  },
+  {
+    songName: "One Love",
+    songDes: "Shubh",
+    songImage: "Images/img15.jpg",
+    songPath: "Audio/15.mp3",
+  },
+  {
+    songName: "Sapphire",
+    songDes: "Ed Sheeran",
+    songImage: "Images/img16.jpg",
+    songPath: "Audio/16.mp3",
+  },
+  {
+    songName: "Finding Her",
+    songDes: "Kushagra,Bharath,Saaheal",
+    songImage: "Images/img17.jpg",
+    songPath: "Audio/17.mp3",
+  },
+  {
+    songName: "Dooron Dooron",
+    songDes: "Paresh Pahuja,Shiv Tandan,Meghdeep Bose",
+    songImage: "Images/img18.jpg",
+    songPath: "Audio/18.mp3",
+  },
+  {
+    songName: "Deewana Kar Raha hai",
+    songDes: "Javed Ali",
+    songImage: "Images/img19.jpg",
+    songPath: "Audio/19.mp3",
+  },
+  {
+    songName: "Hass Hass",
+    songDes: "Diljit Dosanjh,Sia,Greg Kurstin",
+    songImage: "Images/img20.jpg",
+    songPath: "Audio/20.mp3",
+  },
+  {
+    songName: 'Shararat(From "Dhurandhar")',
+    songDes: "Shashwat Sachdev,Madhubanti Bagchi,Jasmine Sandlas",
+    songImage: "Images/img21.jpg",
+    songPath: "Audio/21.mp3",
+  },
+  {
+    songName: "Sar Sukhachi Shravani",
+    songDes: "Abhijeet Sawant,Bela Shende",
+    songImage: "Images/img22.jpg",
+    songPath: "Audio/22.mp3",
+  },
+  {
+    songName: "Sundari",
+    songDes: "Sanju Rathod,G-SPXRK",
+    songImage: "Images/img23.jpg",
+    songPath: "Audio/23.mp3",
+  },
+  {
+    songName: "Tuzyya Pirticha vichu Chawla",
+    songDes: "Ajay Gogavale,Ajay-Atul",
+    songImage: "Images/img24.jpg",
+    songPath: "Audio/24.mp3",
+  },
+  {
+    songName: "Mi Haay Koli",
+    songDes: "Shrikant narayan",
+    songImage: "Images/img25.jpg",
+    songPath: "Audio/25.mp3",
+  },
+  {
+    songName: "Apsara Aali",
+    songDes: "Ajay Gogavale,Ajay-Atul,Bela Shende",
+    songImage: "Images/img26.jpg",
+    songPath: "Audio/26.mp3",
+  },
+  {
+    songName: "Rani Majhya Malyamandi",
+    songDes: "Avadhoot Gupte,Vaishali Samant",
+    songImage: "Images/img27.jpg",
+    songPath: "Audio/27.mp3",
+  },
+  {
+    songName: "Paplet",
+    songDes: "Zubaan Music,Chintamani",
+    songImage: "Images/img28.jpg",
+    songPath: "Audio/28.mp3",
+  },
+];
+
+module.exports = songs;
