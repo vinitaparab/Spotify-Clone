@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, "..", "frontend")));
 
 app.get("/api/songs", (req, res) => {
   console.log("Songs API called");
-  const baseUrl = `${req.protocol}://${req.get("host")}`;
+  const baseUrl = `https://${req.get("host")}`;
   const playableSongs = songs.map((song) => ({
     ...song,
     songPath: `${baseUrl}/${song.songPath}`,
