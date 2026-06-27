@@ -248,7 +248,7 @@ let order = [];
 
 async function loadSongs() {
   try {
-    const response = await fetch("http://localhost:5000/api/songs");
+    const response = await fetch("https://spotify-clone-backend-8py5.onrender.com/api/songs")
 
     const data = await response.text();
     // console.log(data);
