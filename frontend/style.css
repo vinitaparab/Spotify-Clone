@@ -1,11 +1,13 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
   background-color: black;
   font-family: "Montserrat", sans-serif;
+  min-width: 320px;
 }
 
 /* Navbar */
@@ -15,11 +17,15 @@ nav {
   align-items: center;
   justify-content: space-between;
   height: 4rem;
+  gap: 1rem;
+  padding-right: 1rem;
 }
 .left-half {
   color: white;
   display: flex;
   align-items: center;
+  min-width: 0;
+  flex: 1;
 }
 .logo {
   color: rgb(56, 206, 56);
@@ -48,6 +54,7 @@ nav {
   align-items: center;
   height: 3rem;
   width: 25rem;
+  max-width: 100%;
   border-radius: 20rem;
 }
 .search-bar:hover {
@@ -83,8 +90,10 @@ nav {
 .right-half {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   color: white;
-  width: 48%;
+  width: auto;
+  flex-shrink: 0;
 }
 .right-half-p1 {
   display: flex;
@@ -118,7 +127,7 @@ nav {
   border: none;
   font-size: 1rem;
   font-weight: 700;
-  margin: 2rem;
+  margin: 0 0 0 1rem;
   transition: 0.2s;
 }
 .login-btn:hover {
@@ -128,12 +137,14 @@ nav {
 /* main-left-part */
 .main {
   background-color: black;
-  min-width: 98vw;
-  height: 80vh;
+  width: 100%;
+  height: calc(100vh - 9.2rem);
   margin-top: 1vh;
   display: flex;
+  gap: 0.6rem;
   justify-content: space-around;
   color: white;
+  padding: 0 0.4rem;
 }
 .main-left-part {
   width: 27%;
@@ -180,7 +191,7 @@ nav {
 }
 .box {
   background-color: #1f1f1f;
-  height: 22%;
+  min-height: 9rem;
   width: 98%;
   margin: 1rem 0;
   border-radius: 10px;
@@ -220,19 +231,21 @@ nav {
 }
 
 .music-card img {
-  height: 10rem;
-  width: 10rem;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: cover;
   object-position: center;
   border-radius: 5px;
 }
 
 .music-card {
-  width: 10rem;
+  width: 11.4rem;
+  flex: 0 0 11.4rem;
   padding: 0.7rem;
-  border-color: 5px;
   background-color: #121212;
   position: relative;
+  border-radius: 8px;
 }
 .music-card:hover {
   background-color: #202020;
@@ -243,6 +256,7 @@ nav {
 .songs {
   margin: 2rem 0;
   display: flex;
+  gap: 0.5rem;
   overflow-x: auto;
   /* scroll-behavior:smooth;
   scrollbar-color: black; */
@@ -254,10 +268,20 @@ nav {
 
 .img-title {
   margin: 0.7rem 0;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .img-description {
   font-size: 0.8rem;
   color: #b3b3b3;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .music-play-btn {
   color: rgb(56, 206, 56);
@@ -267,13 +291,14 @@ nav {
   display: flex;
   border-radius: 20rem;
   width: 2.7rem;
-  transform: translate(110px, -40px);
+  right: 1rem;
+  bottom: 4.4rem;
   opacity: 0;
   transition: 0.3s;
 }
 .music-card:hover .music-play-btn {
   opacity: 1;
-  transform: translate(110px, -50px);
+  transform: translateY(-10px);
 }
 
 /* player */
@@ -286,11 +311,14 @@ nav {
   align-items: center;
   justify-content: space-between;
   background-color: rgb(0, 0, 0);
+  padding: 0 0.5rem;
 }
 .music-controler {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
+  min-width: 0;
 }
 .player {
   display: flex;
@@ -312,7 +340,7 @@ nav {
 }
 #progressBar {
   appearance: none;
-  width: 600px;
+  width: min(42rem, 52vw);
   height: 3px;
   background-color: #333;
   border-radius: 5px;
@@ -329,6 +357,8 @@ input[type="range"]::-webkit-slider-thumb {
   color: white;
   display: flex;
   align-items: center;
+  min-width: 16rem;
+  max-width: 28vw;
 }
 .player-bar img {
   height: 4rem;
@@ -340,11 +370,17 @@ input[type="range"]::-webkit-slider-thumb {
 .img-title-info {
   font-size: 0.9rem;
   margin-left: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .img-des-info {
   font-size: 0.9rem;
   color: white;
   margin-left: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .active{
@@ -352,4 +388,282 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .active:hover{
   color: rgb(25, 155, 25);
+}
+
+@media (max-width: 1200px) {
+  .right-half-p1 {
+    display: none;
+  }
+
+  .search-bar {
+    width: clamp(16rem, 34vw, 25rem);
+  }
+
+  .main-left-part {
+    width: 30%;
+  }
+
+  .main-right-part {
+    width: 69%;
+  }
+}
+
+@media (max-width: 900px) {
+  nav {
+    padding: 0 0.75rem 0 0;
+  }
+
+  .logo {
+    font-size: 2.1rem;
+    margin: 0.75rem;
+  }
+
+  .home-icon {
+    font-size: 1.35rem;
+  }
+
+  .right-half-p2 .nav-text {
+    display: none;
+  }
+
+  .login-btn {
+    width: 5.5rem;
+    height: 2.5rem;
+  }
+
+  .main {
+    height: calc(100vh - 9.2rem);
+  }
+
+  .main-left-part {
+    width: 15rem;
+  }
+
+  .main-right-part {
+    flex: 1;
+    width: auto;
+  }
+
+  #progressBar {
+    width: min(34rem, 48vw);
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    height: auto;
+    min-height: 4rem;
+    flex-wrap: wrap;
+    padding: 0.4rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .left-half {
+    width: 100%;
+  }
+
+  .search-bar {
+    flex: 1;
+    min-width: 0;
+    height: 2.7rem;
+  }
+
+  .search-icon {
+    margin: 0.75rem;
+    font-size: 1.2rem;
+  }
+
+  .input-box {
+    font-size: 0.95rem;
+  }
+
+  .browse {
+    display: none;
+  }
+
+  .right-half {
+    display: none;
+  }
+
+  .main {
+    display: block;
+    height: auto;
+    min-height: calc(100vh - 9rem);
+    padding: 0 0.6rem 6rem;
+  }
+
+  .main-left-part {
+    display: none;
+  }
+
+  .main-right-part {
+    width: 100%;
+    min-height: calc(100vh - 10rem);
+    border-radius: 8px;
+  }
+
+  .music-section {
+    margin: 1.4rem 0;
+    padding: 0 0.8rem;
+  }
+
+  .music-section h2 {
+    font-size: 1.25rem;
+  }
+
+  .songs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 1rem 0 1.7rem;
+    overflow: visible;
+  }
+
+  .music-card {
+    width: 100%;
+    min-width: 0;
+    flex: initial;
+    padding: 0.55rem;
+  }
+
+  .music-play-btn {
+    opacity: 1;
+    right: 0.8rem;
+    bottom: 4rem;
+    font-size: 2.25rem;
+    width: 2.25rem;
+  }
+
+  .music-card:hover .music-play-btn {
+    transform: none;
+  }
+
+  .player-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    height: 5.8rem;
+    align-items: flex-start;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .now-bar {
+    min-width: 0;
+    width: 38%;
+    max-width: 38%;
+  }
+
+  .player-bar img {
+    height: 3.3rem;
+    width: 3.3rem;
+    margin-left: 0;
+  }
+
+  .img-title-info,
+  .img-des-info {
+    margin-left: 0.55rem;
+    font-size: 0.75rem;
+  }
+
+  .music-controler {
+    align-items: flex-end;
+    padding-top: 0.15rem;
+  }
+
+  .player-btns {
+    margin: 0.35rem 0.55rem;
+  }
+
+  #play {
+    font-size: 1.95rem;
+  }
+
+  #progressBar {
+    width: 52vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.9rem;
+    margin: 0.4rem 0.6rem 0.4rem 0;
+  }
+
+  .home-icon {
+    display: none;
+  }
+
+  .search-bar {
+    height: 2.45rem;
+  }
+
+  .main {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+  }
+
+  .music-section {
+    padding: 0 0.55rem;
+  }
+
+  .songs {
+    gap: 0.55rem;
+  }
+
+  .music-card {
+    padding: 0.45rem;
+  }
+
+  .img-title {
+    font-size: 0.85rem;
+  }
+
+  .img-description {
+    font-size: 0.72rem;
+    -webkit-line-clamp: 1;
+  }
+
+  .music-play-btn {
+    bottom: 3.45rem;
+    right: 0.65rem;
+    font-size: 2rem;
+    width: 2rem;
+  }
+
+  .player-bar {
+    height: 6.2rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .now-bar {
+    width: 100%;
+    max-width: calc(100% - 0.5rem);
+  }
+
+  .player-bar img {
+    height: 2.8rem;
+    width: 2.8rem;
+  }
+
+  .music-controler {
+    width: 100%;
+    align-items: center;
+    flex: auto;
+  }
+
+  .player {
+    margin-top: -0.25rem;
+  }
+
+  .player-btns {
+    margin: 0.25rem 0.7rem;
+    font-size: 1rem;
+  }
+
+  #progressBar {
+    width: 88vw;
+  }
 }
