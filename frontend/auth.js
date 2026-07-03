@@ -39,7 +39,6 @@ togglePassword.addEventListener("click", () => {
 // ====================================
 
 loginForm.addEventListener("submit", async (e) => {
-  
   e.preventDefault();
 
   const email = emailInput.value.trim();
@@ -48,7 +47,6 @@ loginForm.addEventListener("submit", async (e) => {
   try {
     showMessage("Logging in...", "white");
 
-    
     const response = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
 
@@ -61,7 +59,7 @@ loginForm.addEventListener("submit", async (e) => {
         password,
       }),
     });
-    
+
     const data = await response.json();
 
     if (response.ok) {
@@ -70,7 +68,9 @@ loginForm.addEventListener("submit", async (e) => {
 
       showMessage("Login Successful ✅", "lightgreen");
 
-      // Redirect will be added later
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500);
     } else {
       showMessage(data.message, "#ff4d4d");
     }
