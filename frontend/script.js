@@ -1,3 +1,30 @@
+// Protect Spotify Page
+const token = localStorage.getItem("token");
+
+if (!token) {
+
+    window.location.href = "login.html";
+
+}
+
+// ==========================================
+// Update Navbar for Logged-in User
+// ==========================================
+
+const loginBtn = document.querySelector(".login-btn");
+const signupText = document.querySelectorAll(".nav-text")[4];
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (token) {
+
+    loginBtn.style.display = "none";
+    signupText.style.display = "none";
+
+    logoutBtn.style.display = "inline-block";
+
+}
+
+
 let play = document.getElementById("play");
 let progressBar = document.getElementById("progressBar");
 let audio = new Audio();
@@ -377,3 +404,22 @@ audio.addEventListener("ended", () => {
 backward.addEventListener("click", () => {
   playPrevSong();
 });
+
+// ==========================================
+// Logout User
+// ==========================================
+
+// const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+
+    logoutBtn.addEventListener("click", () => {
+
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+
+        window.location.href = "login.html";
+
+    });
+
+}
