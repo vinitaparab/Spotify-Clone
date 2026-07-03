@@ -134,6 +134,10 @@ nav {
   transform: scale(1.05);
 }
 
+#logoutBtn {
+    display: none;
+}
+
 /* main-left-part */
 .main {
   background-color: black;
