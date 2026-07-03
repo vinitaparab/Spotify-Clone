@@ -1,3 +1,16 @@
+// ==========================================
+// Protect Spotify Page
+// ==========================================
+
+const token = localStorage.getItem("token");
+
+if (!token) {
+
+    window.location.href = "login.html";
+
+}
+
+
 let play = document.getElementById("play");
 let progressBar = document.getElementById("progressBar");
 let audio = new Audio();
