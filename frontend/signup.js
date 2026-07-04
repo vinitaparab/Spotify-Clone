@@ -57,7 +57,7 @@ signupForm.addEventListener("submit", async (e) => {
 
         showMessage("Creating account...", "white");
 
-        const response = await fetch("http://localhost:5000/api/auth/signup", {
+        const response = await fetch("https://spotify-clone-backend-8py5.onrender.com", {
 
             method: "POST",
 
