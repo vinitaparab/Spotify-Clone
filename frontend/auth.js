@@ -47,7 +47,7 @@ loginForm.addEventListener("submit", async (e) => {
   try {
     showMessage("Logging in...", "white");
 
-    const response = await fetch("http://localhost:5000/api/auth/login", {
+const response = await fetch("https://spotify-clone-backend-8py5.onrender.com/api/auth/login", {
       method: "POST",
 
       headers: {
