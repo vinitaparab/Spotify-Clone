@@ -38,7 +38,7 @@ A Spotify-style music player web app. It has a vanilla HTML/CSS/JavaScript front
 Spotify_Clone/
 ├── package.json              # bcryptjs, dotenv, jsonwebtoken, mongoose
 ├── backend/
-│   ├── package.json          # express, cors  (start script: node server.js)
+│   ├── package.json          # All backend dependencies (start script: node server.js)
 │   ├── server.js             # Express app entry point
 │   ├── song.js               # Song catalogue (name, artists, image, audio path)
 │   ├── .env                  # Environment variables (NOT to be committed)
@@ -62,7 +62,7 @@ Spotify_Clone/
     └── Images/               # Cover art (+ Audio/ copies)
 ```
 
-> **Note:** the dependencies are split across two `package.json` files. The **root** holds `mongoose`, `bcryptjs`, `jsonwebtoken` and `dotenv`, and **`backend/`** holds `express` and `cors`. Node resolves modules up the directory tree, so the backend works as long as you install **both**.
+> **Note:** everything the backend needs is listed in `backend/package.json`. The root `package.json` is left over from earlier setup, and the backend does not need it.
 
 ---
 
@@ -84,10 +84,7 @@ cd Spotify-Clone
 
 ### 2. Install dependencies
 
-Install in **both** the root folder and `backend/`:
-
 ```bash
-npm install
 cd backend
 npm install
 ```
@@ -149,7 +146,7 @@ The frontend currently has the **production Render URL hard-coded**. To use your
 | File                  | Current value                                                          | Local value                                        |
 | --------------------- | ---------------------------------------------------------------------- | -------------------------------------------------- |
 | `frontend/auth.js`    | `https://spotify-clone-backend-8py5.onrender.com/api/auth/login`       | `http://localhost:5000/api/auth/login`             |
-| `frontend/signup.js`  | `https://spotify-clone-backend-8py5.onrender.com`                      | `http://localhost:5000/api/auth/signup`            |
+| `frontend/signup.js`  | `https://spotify-clone-backend-8py5.onrender.com/api/auth/signup`      | `http://localhost:5000/api/auth/signup`            |
 | `frontend/script.js`  | `https://spotify-clone-backend-8py5.onrender.com/api/songs`            | `http://localhost:5000/api/songs`                  |
 
 `backend/server.js` also builds song URLs with a hard-coded `https://` prefix. Local servers usually run on plain `http`, so change this line for local development:
@@ -257,10 +254,10 @@ app.get("/api/private", authMiddleware, (req, res) => res.json({ userId: req.use
 
 1. Create a new **Web Service** on [Render](https://render.com) from this repository.
 2. Suggested settings:
-   - **Root directory:** leave blank (the repo root)
-   - **Build command:** `npm install && cd backend && npm install`
-   - **Start command:** `cd backend && npm start`
-3. Under **Environment**, add `MONGO_URI` and `JWT_SECRET`. Render sets `PORT` automatically.
+   - **Root directory:** `backend`
+   - **Build command:** `npm install`
+   - **Start command:** `npm start`
+3. Under **Environment**, add `MONGO_URI` and `JWT_SECRET`. The `.env` file is not committed, so the server can only read them from here. Render sets `PORT` automatically.
 4. Update the backend URLs in the frontend JS files to your new Render URL.
 
 > Render free-tier services go to sleep when idle, so the first request after a while can take 30–60 seconds.
@@ -269,23 +266,13 @@ app.get("/api/private", authMiddleware, (req, res) => res.json({ userId: req.use
 
 ## Known Issues / TODO
 
-- **Signup URL is incomplete**: `frontend/signup.js` posts to the bare backend URL instead of `/api/auth/signup`, so signups from the UI fail until you fix it.
-- **Secrets and `node_modules` are committed**: add a `.gitignore` (see below), run `git rm -r --cached node_modules backend/node_modules backend/.env`, and **rotate** the MongoDB password and `JWT_SECRET`, because the old values are still in the Git history.
+- **Old secrets are still in the Git history**: `backend/.env` used to be committed. If you haven't already, change the MongoDB password and `JWT_SECRET`.
 - **Hard-coded API URLs**: consider a single `API_BASE_URL` constant in the frontend.
 - **Hard-coded `https://`** in `/api/songs`: see [Running Locally](#running-locally-against-your-own-backend).
 - **Duplicate media**: images and audio exist in both `backend/` and `frontend/Images/`.
 - **`playNextSong`** in `script.js` wraps to song `30`, but there are only 28 songs.
 - **No input validation**: the backend does not check for empty fields, email format or password strength.
 - No tests yet (`npm test` is a placeholder).
-
-### Recommended `.gitignore`
-
-```gitignore
-node_modules/
-.env
-*.log
-.DS_Store
-```
 
 ---
 
